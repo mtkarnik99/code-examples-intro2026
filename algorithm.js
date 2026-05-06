@@ -1,14 +1,14 @@
-// const bread = 2;
-// const peanutButter = true;
-// const jelly = false;
+const bread = 2;
+const peanutButter = true;
+const jelly = false;
 
 
-// if(bread >= 2 && peanutButter && jelly){
-//     console.log("Make the sandwich!");
-// }
-// else{
-//     console.log("Missing ingredients");
-// }
+if(bread >= 2 && peanutButter && jelly){
+    console.log("Make the sandwich!");
+}
+else{
+    console.log("Missing ingredients");
+}
 
 // Start
 // Set bread slices
