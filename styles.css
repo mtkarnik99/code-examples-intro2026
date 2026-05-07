@@ -1,180 +1,50 @@
-/* ============================================
-   BASE STYLES — applied to the whole page
-   ============================================ */
-
-/* element selector — targets the body element */
-/* sets a default font and background for the entire page */
-body {
-    font-family: sans-serif;
-    background-color: #f5f5f5;
-    /* margin: 0 removes the default spacing browsers add around the body */
-    margin: 0;
-    padding: 0;
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 20px;
 }
 
-
-/* ============================================
-   LAYOUT — the box model in action
-   ============================================ */
-
-/* class selector — targets any element with class="container" */
-/* this is the page wrapper that centers and constrains our content */
-.container {
-    /* max-width limits how wide the content gets on large screens */
-    max-width: 600px;
-
-    /* margin: 0 auto — centers the container horizontally */
-    /* 0 top and bottom margin, auto left and right margin */
-    margin: 0 auto;
-
-    /* padding creates space between the content and the container edge */
-    /* this is the "bubble wrap" layer of the box model */
-    padding: 32px;
-
-    background-color: #ffffff;
+h1{
+    color: navy;
+    text-align: center;
 }
 
-
-/* ============================================
-   TYPOGRAPHY — styling text elements
-   ============================================ */
-
-/* element selector — targets all h1 elements */
-/* specificity: element selectors score lower than class selectors */
-h1 {
-    color: #2c3e50;
-    font-size: 2rem;
-    /* margin-bottom adds space below the heading */
-    /* this is the "space between boxes on the shelf" layer */
-    margin-bottom: 8px;
-}
-
-/* element selector — targets all h2 elements */
-h2 {
-    color: #34495e;
-    font-size: 1.25rem;
-    margin-top: 24px;
-}
-
-/* class selector — targets the element with class="intro" */
-/* this wins over a plain p element selector because class > element */
-/* CASCADE DEMO — add a p {} rule above and watch this one win */
-.intro {
-    color: #555;
-    font-size: 1rem;
-    /* line-height controls the spacing between lines of text */
+p{
+    font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 16px;
 }
 
-/* class selector — targets the em with class="hobbies-label" */
-/* em is inline by default — display: block makes it stack like a heading */
-.hobbies-label {
-    display: block;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 8px;
-    margin-top: 16px;
+.hobbies-label{
+    margin-top: 30px;
+    color: red;
 }
 
-
-/* ============================================
-   THE BOX MODEL — padding, border, margin
-   ============================================ */
-
-/* class selector — targets the ul with class="hobbies-list" */
-.hobbies-list {
-    /* padding adds space between the list content and its border */
-    padding: 16px 16px 16px 32px;
-
-    /* border is the visible edge around the element */
-    /* shorthand: width style color */
-    border: 1px solid #ddd;
-
-    /* border-radius rounds the corners */
-    border-radius: 8px;
-
-    /* margin adds space outside the border */
-    /* pushes the list away from surrounding elements */
-    margin: 0 0 24px 0;
-
-    /* background-color fills the content + padding area */
-    background-color: #f9f9f9;
+.hobbies-list li{
+    color: green;
+    margin-bottom: 8px ;
 }
 
-/* element selector inside a class — targets li elements inside .hobbies-list */
-/* this is called a descendant selector */
-.hobbies-list li {
-    /* adds vertical spacing between each list item */
-    margin-bottom: 8px;
-    color: #444;
-}
-
-/* removes the bottom margin from the last list item */
-/* so there's no extra space before the border */
-.hobbies-list li:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ============================================
-   THE CASCADE & SPECIFICITY DEMO
-   ============================================ */
-
-/* element selector — lower specificity */
-/* this rule loses to .intro because class selectors score higher */
-p {
-    color: black;
-    font-size: 0.9rem;
-}
-
-/* .intro wins because class selector > element selector */
-/* even though p comes before .intro in this file */
-/* specificity beats source order */
-
-
-/* ============================================
-   FLEXBOX — laying out the links side by side
-   ============================================ */
-
-/* class selector — targets the div with class="links" */
-/* display: flex turns this into a flex container */
-/* all direct children become flex items */
-.links {
-    display: flex;
-
-    /* gap adds space between the flex items */
-    gap: 12px;
-
-    /* align-items centers the items vertically within the container */
-    align-items: center;
-
-    margin-top: 8px;
-}
-
-/* class selector — targets both anchor tags with class="link-button" */
-/* styled to look like buttons rather than plain text links */
-.link-button {
-    /* removes the default underline from links */
+.links a{
+    color: teal;
     text-decoration: none;
-
-    /* padding gives the button its size */
-    /* this is the content + padding layer of the box model */
-    padding: 10px 20px;
-
-    background-color: #2c3e50;
-    color: #ffffff;
-    border-radius: 4px;
-
-    /* font-weight makes the text bold */
-    font-weight: bold;
-
-    /* display: inline-block lets us set padding on an inline element */
-    display: inline-block;
+    margin-right: 10px;
 }
 
-/* pseudo-class — applies styles when the user hovers over the element */
-/* this is how you add interactivity without JavaScript */
-.link-button:hover {
-    background-color: #1a252f;
+a:hover{
+    text-decoration: underline;
+}
+
+.links{
+    display: flex;
+    gap : 15px;
+    align-items: center;
+}
+
+.container{
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
 }
