@@ -1,45 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Karnik</title>
-    <!-- external stylesheet — the professional way to add CSS -->
-    <!-- the browser loads this file and applies all the rules inside -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM & Forms Demo</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- defer ensures the script runs AFTER the HTML is fully parsed -->
+  <!-- without this, querySelector would find nothing -->
+  <script src="index.js" defer></script>
 </head>
 <body>
 
-    <!-- page wrapper — gives us one element to center and constrain the layout -->
-    <div class="container">
+  <div class="page-wrapper">
+    <h1>DOM & Forms — Week 7</h1>
 
-        <h1>Meet Karnik</h1>
+    <!-- ============================================
+         SECTION 1 — DOM Targeting & Manipulation
+         ============================================ -->
+    <section class="demo-section">
+      <h2>Section 1 — DOM Targeting & Manipulation</h2>
+      <p class="section-note">
+        This section is manipulated on page load — open the console to
+        see what JavaScript finds and changes.
+      </p>
 
-        <!-- class added — lets us target this paragraph specifically -->
-        <p class="intro">
-            Current mentor at Code the Dream.
-            Loves working out, learning Spanish just for fun.
-        </p>
+      <!-- JavaScript will find this heading and change it -->
+      <h3 id="section-title">Original Title</h3>
 
-        <!-- em is inline by default — we'll show how to style inline elements -->
-        <em class="hobbies-label">List of Hobbies</em>
+      <!-- JavaScript will find all these items and style them -->
+      <ul id="item-list">
+        <li class="list-item">Item One</li>
+        <li class="list-item">Item Two</li>
+        <li class="list-item">Item Three</li>
+      </ul>
 
-        <!-- class added to the list — demonstrates class selector -->
-        <ul class="hobbies-list">
-            <li>Dancing</li>
-            <li>Singing</li>
-            <li>Hiking</li>
-        </ul>
+      <!-- JavaScript will create a new item and append it here -->
+      <div id="new-item-output"></div>
+    </section>
 
-        <h2>Connect with me on:</h2>
 
-        <!-- wrapper div — lets us use flexbox to lay the links side by side -->
-        <div class="links">
-            <a href="https://www.linkedin.com/in/meet-karnik" class="link-button">LinkedIn</a>
-            <a href="https://www.github.com/mtkarnik99" class="link-button">GitHub</a>
+    <!-- ============================================
+         SECTION 2 — Events & Event Listeners
+         ============================================ -->
+    <section class="demo-section">
+      <h2>Section 2 — Events & Event Listeners</h2>
+      <p class="section-note">
+        Click the button to see addEventListener in action.
+        Check the console to see the event object.
+      </p>
+
+      <button id="click-btn" class="btn">Click Me</button>
+      <button id="hover-btn" class="btn">Hover Over Me</button>
+
+      <!-- JavaScript will update this div based on events -->
+      <div id="event-output" class="output-box"></div>
+    </section>
+
+
+    <!-- ============================================
+         SECTION 3 — Attaching Listeners to Multiple Elements
+         ============================================ -->
+    <section class="demo-section">
+      <h2>Section 3 — Attaching Listeners to Multiple Elements</h2>
+      <p class="section-note">
+        One forEach loop attaches a listener to every color button.
+        No duplicate code needed.
+      </p>
+
+      <div class="color-buttons">
+        <button class="color-btn btn" data-color="#e74c3c">Red</button>
+        <button class="color-btn btn" data-color="#2980b9">Blue</button>
+        <button class="color-btn btn" data-color="#27ae60">Green</button>
+        <button class="color-btn btn" data-color="#8e44ad">Purple</button>
+      </div>
+
+      <!-- JavaScript will update this box with the selected color -->
+      <div id="color-preview" class="color-preview">
+        Click a color button
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         SECTION 4 — HTML Form
+         ============================================ -->
+    <section class="demo-section">
+      <h2>Section 4 — HTML Form</h2>
+      <p class="section-note">
+        A form with multiple input types, radio buttons, checkboxes,
+        and a dropdown. Click a label to see it focus its input.
+      </p>
+
+      <form id="profile-form">
+
+        <fieldset>
+          <legend>Personal Details</legend>
+
+          <div class="field">
+            <!-- for= must match id= to associate the label with the input -->
+            <label for="full-name">Full Name:</label>
+            <input
+              type="text"
+              id="full-name"
+              name="fullName"
+              placeholder="Enter your full name"
+            >
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address:</label>
+            <!-- type="email" validates format automatically -->
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+            >
+          </div>
+
+          <div class="field">
+            <label for="dob">Date of Birth:</label>
+            <!-- type="date" renders a calendar picker -->
+            <input type="date" id="dob" name="dob">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+
+          <!-- radio buttons — same name groups them together -->
+          <!-- only one can be selected at a time -->
+          <p class="field-label">Experience Level:</p>
+          <div class="radio-group">
+            <input type="radio" id="beginner" name="level" value="beginner" checked>
+            <label for="beginner">Beginner</label>
+
+            <input type="radio" id="intermediate" name="level" value="intermediate">
+            <label for="intermediate">Intermediate</label>
+
+            <input type="radio" id="advanced" name="level" value="advanced">
+            <label for="advanced">Advanced</label>
+          </div>
+
+          <!-- checkboxes — multiple can be selected at once -->
+          <p class="field-label">Interests:</p>
+          <div class="checkbox-group">
+            <input type="checkbox" id="html-css" name="interests" value="html">
+            <label for="html-css">HTML & CSS</label>
+
+            <input type="checkbox" id="javascript" name="interests" value="js" checked>
+            <label for="javascript">JavaScript</label>
+
+            <input type="checkbox" id="react" name="interests" value="react">
+            <label for="react">React</label>
+          </div>
+
+          <!-- select dropdown — best for longer lists -->
+          <div class="field">
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+              <option value="">-- Select a country --</option>
+              <option value="us">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="ca">Canada</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- textarea — multi-line text input -->
+        <div class="field">
+          <label for="bio">Short Bio:</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="4"
+            placeholder="Tell us a bit about yourself..."
+          ></textarea>
         </div>
 
-    </div>
+        <!-- always specify type on buttons inside a form -->
+        <!-- without type="button", every button defaults to submit -->
+        <div class="form-buttons">
+          <button type="submit">Save Profile</button>
+          <button type="reset">Clear Form</button>
+        </div>
+
+      </form>
+    </section>
+
+
+    <!-- ============================================
+         SECTION 5 — Connecting Forms to DOM
+         ============================================ -->
+    <section class="demo-section">
+      <h2>Section 5 — Connecting Forms to the DOM</h2>
+      <p class="section-note">
+        Fill in the form and click Generate Card — JavaScript reads
+        the values and builds a card using DOM manipulation.
+      </p>
+
+      <form id="card-form">
+        <div class="field">
+          <label for="card-name">Your Name:</label>
+          <input
+            type="text"
+            id="card-name"
+            name="cardName"
+            placeholder="Type your name..."
+          >
+        </div>
+
+        <div class="field">
+          <label for="card-role">Your Role:</label>
+          <input
+            type="text"
+            id="card-role"
+            name="cardRole"
+            placeholder="e.g. Full Stack Developer"
+          >
+        </div>
+
+        <div class="field">
+          <label for="card-color">Card Color:</label>
+          <select id="card-color" name="cardColor">
+            <option value="#2c3e50">Dark Blue</option>
+            <option value="#e74c3c">Red</option>
+            <option value="#27ae60">Green</option>
+            <option value="#8e44ad">Purple</option>
+          </select>
+        </div>
+
+        <div class="form-buttons">
+          <!-- type="button" prevents form submission -->
+          <button type="button" id="generate-btn">Generate Card</button>
+          <button type="reset" id="reset-card-btn">Reset</button>
+        </div>
+      </form>
+
+      <!-- JavaScript builds the card here -->
+      <div id="card-output"></div>
+
+    </section>
+
+  </div>
 
 </body>
 </html>
