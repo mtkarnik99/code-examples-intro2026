@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics</title>
+    <!-- external stylesheet — the professional way to add CSS -->
+    <!-- the browser loads this file and applies all the rules inside -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- page wrapper — gives us one element to center and constrain the layout -->
+    <div class="container">
+
+        <h1>Meet Karnik</h1>
+
+        <!-- class added — lets us target this paragraph specifically -->
+        <p class="intro">
+            Current mentor at Code the Dream.
+            Loves working out, learning Spanish just for fun.
+        </p>
+
+        <!-- em is inline by default — we'll show how to style inline elements -->
+        <em class="hobbies-label">List of Hobbies</em>
+
+        <!-- class added to the list — demonstrates class selector -->
+        <ul class="hobbies-list">
+            <li>Dancing</li>
+            <li>Singing</li>
+            <li>Hiking</li>
+        </ul>
+
+        <h2>Connect with me on:</h2>
+
+        <!-- wrapper div — lets us use flexbox to lay the links side by side -->
+        <div class="links">
+            <a href="https://www.linkedin.com/in/meet-karnik" class="link-button">LinkedIn</a>
+            <a href="https://www.github.com/mtkarnik99" class="link-button">GitHub</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
